@@ -185,8 +185,13 @@ function processDuplicateFree(/* CODE HERE ONLY AFTER COMPLETING ALL OTHER TASKS
  * @returns an array with all the runners' full names in the following format: "Smith, John".
  * The full names appear in the array in the same order the runners appear in the `runners` array.
 */
-function getFullNames(/* CODE HERE */) {
+function getFullNames(/* CODE HERE */ runners) {
   /* CODE HERE */
+  const fullNames = [];
+  runners.forEach(function(name){
+    return fullNames.push(`${name.last_name}, ${name.first_name}`)
+  });
+  return fullNames;
 }
 
 /**
@@ -201,8 +206,12 @@ function getFullNames(/* CODE HERE */) {
  * @returns an array with all the runners' first names in ALL CAPS.
  * The first names appear in the array in the same order the runners appear in the `runners` array.
 */
-function firstNamesAllCaps(/* CODE HERE */) {
+function firstNamesAllCaps(/* CODE HERE */ runners) {
   /* CODE HERE */
+  const firstNameCaps = runners.map(function(allCaps){
+    return allCaps.first_name.toUpperCase();
+  });
+  return firstNameCaps;
 }
 
 /**
@@ -218,8 +227,12 @@ function firstNamesAllCaps(/* CODE HERE */) {
  * @returns an array containing only the runners that use the given `tShirtSize`.
  * The runners in the array appear in the same order they appear in the `runners` array.
 */
-function getRunnersByTShirtSize(/* CODE HERE */) {
+function getRunnersByTShirtSize(/* CODE HERE */ runners, tShirtSize) {
   /* CODE HERE */
+  const shirtSize = runners.filter(function(runners){
+    return runners.shirt_size === tShirtSize
+  });
+  return shirtSize;
 }
 
 /**
@@ -232,8 +245,12 @@ function getRunnersByTShirtSize(/* CODE HERE */) {
  * @param runners array of runners like the one inside the /data/runners.js file.
  * @returns a number which is the sum of the donations by all runners.
 */
-function tallyUpDonations(/* CODE HERE */) {
+function tallyUpDonations(/* CODE HERE */ runners) {
   /* CODE HERE */
+  const totalDonations = runners.reduce(function(accumulator, currentValue){
+    return accumulator + currentValue.donation;
+  }, 0);
+  return totalDonations;
 }
 
 /////////////// CLOSURES ///////////////

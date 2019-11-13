@@ -163,8 +163,11 @@ function processContains(/* CODE HERE */ item, list, callback) {
  * [2] Invoking `processDuplicateFree` passing `[1,1,2,2,3]` and `(arr) => arr.length`,
  * should return 3.
 */
-function processDuplicateFree(/* CODE HERE ONLY AFTER COMPLETING ALL OTHER TASKS */) {
+function processDuplicateFree(/* CODE HERE ONLY AFTER COMPLETING ALL OTHER TASKS */ list, callback) {
   /* CODE HERE ONLY AFTER COMPLETING ALL OTHER TASKS */
+  return callback(list.filter((item, index) =>{
+    return list.indexOf(item) === index
+  }))
 }
 
 /////////////// HIGHER-ORDER ARRAY METHODS ///////////////
@@ -271,12 +274,14 @@ function tallyUpDonations(/* CODE HERE */ runners) {
 */
 function counterMaker() {
   // BROKEN CODE STARTS
-  const count = 0;
+  let count = 0;
   function counter() {
-    ++count
+     return count++;
   }
+  return counter
   // BROKEN CODE ENDS
-}
+};
+
 
 /**
  * ### Challenge `counterMakerWithLimit`
@@ -298,10 +303,30 @@ function counterMaker() {
  * counter() // should return 0
  * etc
 */
-function counterMakerWithLimit(/* CODE HERE */) {
+function counterMakerWithLimit(/* CODE HERE */ maxValue) {
   /* CODE HERE */
+  // let count = 0;
+  // let maxvalue = 3
+  //   return function counter(maxvalue) {
+  //     return count++;
+  // }
+ 
+    let count = 0;
+    function counter(){
+      if(count <= maxValue){
+        return count++
+      }else{
+        count = 0
+        return count++
+      }
+    };
+    return counter 
 }
-
+const counter = counterMakerWithLimit(3)
+// counter();
+// counter();
+// counter();
+// counter();
 /////////////// END OF CHALLENGE ///////////////
 /////////////// END OF CHALLENGE ///////////////
 /////////////// END OF CHALLENGE ///////////////

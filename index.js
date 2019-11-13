@@ -305,12 +305,6 @@ function counterMaker() {
 */
 function counterMakerWithLimit(/* CODE HERE */ maxValue) {
   /* CODE HERE */
-  // let count = 0;
-  // let maxvalue = 3
-  //   return function counter(maxvalue) {
-  //     return count++;
-  // }
- 
     let count = 0;
     function counter(){
       if(count <= maxValue){
